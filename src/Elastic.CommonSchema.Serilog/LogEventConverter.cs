@@ -50,7 +50,7 @@ namespace Elastic.CommonSchema.Serilog
 			var user = GetUser(logEvent, configuration);
 			if (user != null) ecsEvent.User = user;
 
-			ecsEvent.Message = logEvent.RenderMessage(configuration.MessageFormatProvider);
+			ecsEvent.Message = logEvent.RenderMessage(configuration.MessageFormatProvider).Replace("\"", "");
 			ecsEvent.Log = GetLog(logEvent);
 			ecsEvent.Agent = GetAgent(logEvent) ?? DefaultAgent;
 			ecsEvent.Event = GetEvent(logEvent);
