@@ -32,13 +32,17 @@ internal static partial class PropDispatch
 	{
 		switch (value)
 		{
-			case string s:
+			/*case string s:
 				document.Labels ??= new Labels();
 				document.Labels[path] = s;
 				break;
 			case bool b:
 				document.Labels ??= new Labels();
 				document.Labels[path] = b.ToString(CultureInfo.InvariantCulture).ToLowerInvariant();
+				break;*/
+			case Enum e:
+				document.Metadata ??= new MetadataDictionary();
+				document.Metadata[path] = value.ToString();
 				break;
 			default:
 				document.Metadata ??= new MetadataDictionary();
