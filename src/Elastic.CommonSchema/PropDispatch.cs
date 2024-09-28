@@ -43,6 +43,7 @@ internal static partial class PropDispatch
 			case Enum e:
 				document.Metadata ??= new MetadataDictionary();
 				document.Metadata[path] = value.ToString();
+				document.Metadata[path + ".Value"] = value;
 				break;
 			default:
 				document.Metadata ??= new MetadataDictionary();
